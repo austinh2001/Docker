@@ -59,6 +59,7 @@ class Simulation:
 
     @classmethod
     def runSimulation(cls, simulation_name):
+        # TODO Adjust the working directory to the simulation folder rather than the examples folder. So that no copying/uploading/downloading is required.
         cls.uploadSimulation(simulation_name)
         wd = f"/{os.path.join(cls.source_directory, simulation_name)}"
         exec_dict = cls.port.api_client.exec_create(cls.port.container.id, workdir=wd, cmd="ls")

@@ -9,7 +9,7 @@ simulation = Simulation(example_name)
 # TODO might be better to try and run all simulations in the bout-img-shared folder rather than examples.
 #  Issues with uploading
 simulation.run()
-simulation.show(variable="T")
+#simulation.show(variable="T")
 #docker_port.showSimulation(example_name, variable="n")
 
 #df = xbout.open_boutdataset("./"+example_name+"/data/BOUT.dmp.*.nc","./"+example_name+"/data/BOUT.inp")

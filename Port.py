@@ -8,7 +8,6 @@ from boututils.showdata import showdata
 import boutdata
 
 class Port:
-    set_lib_library_path_cmd = "export LD_LIBRARY_PATH=home/boutuser/BOUT-next/lib"
     def __init__(self, image, shared_folder = None):
         try:
             self.client = docker.from_env()
@@ -19,6 +18,8 @@ class Port:
         try:
             with open("container_id.txt", "r") as f:
                 container_id = f.read()
+                if(container_id == ""):
+                    container_id = None
         except FileNotFoundError:
             container_id = None
 
@@ -27,7 +28,8 @@ class Port:
 
         if(container_id is None):
             self.client.volumes.create("bout-img-shared", driver="local")
-            self.container = self.client.containers.run(image, stdout=True, detach=True, volumes={"/home/boutuser/bout-img-shared/": {"bind":"//C/Users/austi/Docker/", "mode" : "rw"}}, volume_driver = "local", environment={"LD_LIBRARY_PATH": "/home/boutuser/BOUT-next/lib"}, tty=True)
+
+            self.container = self.client.containers.run(image, stdout=True, detach=True, volumes={f"/run/desktop/mnt/host/{shared_folder}": {"bind":"/home/boutuser/bout-img-shared/", "mode" : "rw"}}, volume_driver = "local", environment={"LD_LIBRARY_PATH": "/home/boutuser/BOUT-next/lib"}, tty=True)
             with open("container_id.txt", "w") as text_file:
                 text_file.write(self.container.id)
         else:
@@ -39,13 +41,23 @@ class Port:
         self.shared_folder = shared_folder
 
     def convert_local_path_to_container_path(self, local_path):
-        if("C:\\" in local_path):
-            container_path = local_path.replace("C:\\", "//C/")
-        elif("C:/" in local_path):
-            container_path = local_path.replace("C:/", "//C/")
-        elif ("C://" in local_path):
-            container_path = local_path.replace("C://", "//C/")
+        split_path = []
+        drive = os.path.splitdrive(local_path)[0].removesuffix(":").lower()
+        while True:
+            local_path, tail = os.path.split(local_path)
+            if tail == "":
+                break
+            else:
+                split_path.append(tail)
+        split_path.reverse()
+        split_path.insert(0, drive)
+
+        # combine the path from elements of split_path
+        container_path = ""
+        for i in range(len(split_path)):
+            container_path += split_path[i] + "/"
         return container_path
+
 
     def getTarArchive(self, source, destination):
         strm, stat = self.api_client.get_archive(self.container.id, source)
