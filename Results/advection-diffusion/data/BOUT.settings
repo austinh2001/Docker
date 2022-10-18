@@ -1,0 +1,127 @@
+append = false		# type: bool, doc: Add new outputs to the end of existing files? If false, overwrite files.
+async_send = false		# type: bool, doc: Whether to use asyncronous MPI sends
+datadir = data		# type: string
+dump_format = nc		# type: string
+dump_on_restart = true		# type: bool, doc: Write initial state as time point 0?
+incintshear = false		# type: bool
+mxg = 2		# type: int, doc: Number of guard cells on each side in X
+myg = 0		# type: int, doc: Number of guard cells on each side in Y
+non_uniform = true		# type: bool
+nout = 50		# type: int, doc: Number of output steps
+optionfile = BOUT.inp		# type: string
+periodicx = true		# type: bool, doc: Make grid periodic in X?
+restart = false		# type: bool, doc: Load state from restart files?
+restart_format = nc		# type: string
+settingsfile = BOUT.settings		# type: string
+stopcheck = false		# type: bool, doc: Check if a file exists, and exit if it does.
+timestep = 1e-2		# type: BoutReal, doc: Output time step size
+twistshift = false		# type: bool, doc: Apply a Twist-Shift boundary using ShiftAngle?
+wall_limit = -1		# type: BoutReal, doc: Wall time limit in hours. By default (< 0), no limit
+zmax = 1		# type: BoutReal
+zmin = 0		# type: BoutReal
+
+[all]
+evolve_bndry = false		# type: bool
+scale = 1		# type: BoutReal
+
+[imex]
+dz = 1.0		# type: Field3D, doc: Diffusion in Z
+vx = 2.0		# type: Field3D, doc: Velocity in X
+
+[input]
+max_recursion_depth = 0		# type: string, doc: Maximum recursion depth allowed in expressions. 0 = no recursion; -1 = unlimited
+transform_from_field_aligned = true		# type: bool
+
+[mesh]
+calcparallelslices_on_communicate = true		# type: bool
+dx = 1 / nx
+dz = 1 / (nz-4)
+extrapolate_x = false		# type: bool
+extrapolate_y = false		# type: bool
+include_corner_cells = true		# type: bool, doc: Communicate corner guard and boundary cells. Can be set to false if you are sure that you will not need these cells, for mixed derivatives D2DXDY (or anything else), for example if your grid has orthogonal x- and y-directions.  This might slightly reduce communication time.
+maxregionblocksize = 64		# type: int
+nx = 132
+ny = 1
+nz = 128
+staggergrids = false		# type: bool
+symmetricglobalx = true		# type: bool
+symmetricglobaly = true		# type: bool
+type = bout		# type: string
+
+[mesh:ddx]
+first = c4		# type: string
+flux = u1		# type: string
+second = c4		# type: string
+upwind = w3		# type: string
+
+[mesh:ddy]
+first = c4		# type: string
+flux = u1		# type: string
+second = c4		# type: string
+upwind = w3		# type: string
+
+[mesh:ddz]
+fft_filter = 0		# type: BoutReal
+first = c4		# type: string
+flux = u1		# type: string
+second = c4		# type: string
+upwind = w3		# type: string
+
+[mesh:paralleltransform]
+type = identity		# type: string
+
+[output]
+enabled = true		# type: bool
+floats = false		# type: bool
+flush = true		# type: bool
+flushfrequency = 1		# type: int
+guards = true		# type: bool
+init_missing = false		# type: bool
+openclose = true		# type: bool
+parallel = false		# type: bool
+shiftinput = false		# type: bool
+shiftoutput = false		# type: bool
+
+[restart]
+enabled = true		# type: bool
+floats = false		# type: bool
+flush = true		# type: bool
+flushfrequency = 1		# type: int
+guards = true		# type: bool
+init_missing = false		# type: bool
+openclose = true		# type: bool
+parallel = false		# type: bool
+shiftinput = false		# type: bool
+shiftoutput = false		# type: bool
+
+[run]
+finished = Tue Oct 18 06:37:35 2022
+		# not used , from: 
+revision = 4cee87c3c0173fece6e0651afac52e90ab815699		# not used , from: 
+started = Tue Oct 18 06:37:26 2022
+		# not used , from: 
+version = 5.0.0-alpha		# not used , from: 
+
+[solver]
+adapt_period = 5		# type: int, doc: Number of steps between tolerance checks. 1 means check every step.
+adaptive = true		# type: bool, doc: Use accuracy tolerances to adapt timestep?
+atol = 1e-10		# type: BoutReal, doc: Absolute tolerance
+diagnose = false		# type: bool, doc: Print diagnostic information?
+is_nonsplit_model_diffusive = true		# type: bool, doc: If not a split operator, treat RHS as diffusive?
+max_timestep = 0.01		# type: BoutReal, doc: Maximum timestep. Negative means no limit.
+max_timestep_change = 2		# type: BoutReal, doc: Maximum factor by which the timestep should be changed. Must be >1
+mms = false		# type: bool
+mms_initialise = false		# type: bool
+monitor_timestep = false		# type: bool
+mxstep = 1000		# type: int, doc: Maximum number of internal steps between outputs
+nout = 50		# type: int, doc: Number of output steps. Overrides global setting.
+nstages = 9		# type: int, doc: Number of stages in RKL step. Must be > 1
+output_step = 0.01		# type: BoutReal, doc: Output time step size. Overrides global TIMESTEP setting.
+rtol = 1e-05		# type: BoutReal, doc: Relative tolerance
+timestep = 1e-4		# type: BoutReal, doc: Internal timestep. This may be rounded down.
+type = splitrk		# type: string
+
+[u]
+evolve_bndry = false		# type: bool
+function = exp(-((x-0.5)/0.1)^2 - ((zs-0.5)/0.1)^2)		# type: string
+zs = z / (2π)

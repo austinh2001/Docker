@@ -1,0 +1,332 @@
+BOUT++ version 5.0.0-alpha
+Revision: 4cee87c3c0173fece6e0651afac52e90ab815699
+MD5 checksum: 42a662529276f89d1b7abd74bbcb6c89
+Code compiled on Jan  5 2021 at 22:29:38
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 1
+
+pid: 55
+
+Compile-time options:
+	Runtime error checking enabled, level 2
+	netCDF4 support enabled
+	Parallel NetCDF support disabled
+	FFT support enabled
+	Natural language support enabled
+	HDF5 support enabled
+	LAPACK support enabled
+	NetCDF support enabled
+	PETSc support enabled
+	Pretty function name support enabled
+	PVODE support enabled
+	Score-P support disabled
+	SLEPc support disabled
+	SUNDIALS support enabled
+	Backtrace in exceptions enabled
+	Colour in logs enabled
+	OpenMP parallelisation enabled, using 2 threads
+	Extra debug output disabled
+	Floating-point exceptions disabled
+	Signal handling support enabled
+	Field name tracking disabled
+	Compiled with flags : "-DMD5SUM=42a662529276f89d1b7abd74bbcb6c89 -DBOUT_REVISION=4cee87c3c0173fece6e0651afac52e90ab815699 -g -Wall -Wextra -Wnull-dereference -Wno-cast-function-type -O2 -DCHECK=2 -fPIC -DBOUT_LOCALE_PATH=/usr/local/share/locale -fopenmp"
+	Command line options for this run : ./mhd 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+	Option grid = data/otv.grd.nc (data/BOUT.inp)
+	Option mesh:file = data/otv.grd.nc (default)
+
+Getting grid data from file data/otv.grd.nc
+	Option format =  (default)
+	Option mesh:format =  (default)
+	Using NetCDF4 format for file 'data/otv.grd.nc'
+	Option mesh:type = bout (default)
+	Option mesh:include_corner_cells = 1 (default)
+	Option mesh:StaggerGrids = 0 (default)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddx:first = c4 (data/BOUT.inp)
+	Option mesh:ddx:second = c4 (data/BOUT.inp)
+	Option mesh:ddx:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddz:first = c2 (data/BOUT.inp)
+	Option mesh:ddz:second = c2 (data/BOUT.inp)
+	Option mesh:ddz:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddx:first = c4 (data/BOUT.inp)
+	Option mesh:ddx:second = c4 (data/BOUT.inp)
+	Option mesh:ddx:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddz:first = c2 (data/BOUT.inp)
+	Option mesh:ddz:second = c2 (data/BOUT.inp)
+	Option mesh:ddz:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = u1 (data/BOUT.inp)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option optionfile = BOUT.inp ()
+WARNING: The default of this option has changed in release 4.1.
+If you want the old setting, you have to specify mesh:symmetricGlobalY=false in BOUT.inp
+	Option mesh:symmetricGlobalY = 1 (default)
+Loading mesh
+	Option nx = 132 (data/otv.grd.nc)
+	Option ny = 128 (data/otv.grd.nc)
+	Option nz = 0 (data/otv.grd.nc) (default)
+	Option input:transform_from_field_aligned = 1 (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option mz = 1 (data/BOUT.inp)
+	Option nz = 1 (default)
+	Grid size: 132 x 128 x 1
+	Option MXG = 0 (data/otv.grd.nc) (default)
+	Option MXG = 2 (default)
+	Option MYG = 0 (data/otv.grd.nc) (default)
+	Option MYG = 2 (default)
+	Guard cells (x,y,z): 2, 2, 0
+	Option ixseps1 = 132 (data/otv.grd.nc)
+	Option ixseps2 = 132 (data/otv.grd.nc)
+	Option jyseps1_1 = -1 (data/otv.grd.nc) (default)
+	Option jyseps1_2 = 64 (data/otv.grd.nc) (default)
+	Option jyseps2_1 = 64 (data/otv.grd.nc) (default)
+	Option jyseps2_2 = 127 (data/otv.grd.nc) (default)
+	Option ny_inner = 64 (data/otv.grd.nc) (default)
+Finding value for NXPE (ideal = 1.000000)
+	Candidate value: 1
+	 -> Good value
+	Domain split (NXPE=1, NYPE=1) into domains (localNx=128, localNy=128)
+	Option IncIntShear = 0 (default)
+	Option periodicx = true (data/BOUT.inp)
+	Option async_send = 0 (default)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+Connection between top of Y processor 0 and bottom of 0 in range 0 <= x < 132
+=> This processor sending in up
+=> This processor sending in down
+WARNING adding connection: poloidal index -1 out of range
+	MYPE_IN_CORE = 1
+	DXS = 132, DIN = 0. DOUT = -1
+	UXS = 132, UIN = 0. UOUT = -1
+	XIN = 0, XOUT = 0
+	Twist-shift: DI UI 
+	Option twistshift = false (data/BOUT.inp)
+No boundary regions in this processor
+Constructing default regions
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 1 (default)
+WARNING: extrapolating input mesh quantities into y-boundary cells. Set option extrapolate_y=false to disable this.
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	Option dz = 6.28319 (data/otv.grd.nc) (default)
+	WARNING: Could not read 'g11' from grid. Setting to 1.000000e+00
+	WARNING: Could not read 'g22' from grid. Setting to 1.000000e+00
+	WARNING: Could not read 'g33' from grid. Setting to 1.000000e+00
+	WARNING: Could not read 'g12' from grid. Setting to 0.000000e+00
+	WARNING: Could not read 'g13' from grid. Setting to 0.000000e+00
+	WARNING: Could not read 'g23' from grid. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+	WARNING: Could not read 'J' from grid. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+	WARNING: Could not read 'Bxy' from grid. Setting to 0.000000e+00
+	WARNING: Magnitude of B field 'Bxy' not found. Calculating from metric tensor
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+	WARNING: Could not read 'd2x' from grid. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+	WARNING: Could not read 'd2y' from grid. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+	WARNING: Could not read 'ShiftTorsion' from grid. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform:type = identity (default)
+	Option parallel_transform =  (data/otv.grd.nc) (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF4 format for file 'data/BOUT.dmp.nc'
+	Option restart:parallel = 0 (default)
+	Option restart:flush = 1 (default)
+	Option restart:guards = 1 (default)
+	Option restart:floats = 0 (default)
+	Option restart:openclose = 1 (default)
+	Option restart:enabled = 1 (default)
+	Option restart:init_missing = 0 (default)
+	Option restart:shiftOutput = 0 (default)
+	Option restart:shiftInput = 0 (default)
+	Option restart:flushFrequency = 1 (default)
+	Option solver:type = cvode (default)
+	Option solver:monitor_timestep = 0 (default)
+	Option solver:is_nonsplit_model_diffusive = 1 (default)
+	Option solver:mms = 0 (default)
+	Option solver:mms_initialise = 0 (default)
+	Option restart = 0 (default)
+	Option mhd:g = 1.66667 (default)
+	Option mhd:include_viscos = 0 (default)
+	Option mhd:viscos = 0.1 (default)
+	Reading covariant vector v0
+	WARNING: Could not read 'v0_z' from grid. Setting to 0.000000e+00
+	Reading contravariant vector B0
+	WARNING: Could not read 'B0z' from grid. Setting to 0.000000e+00
+Setting boundary for variable density
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = 0 (default)
+	Option density:evolve_bndry = 0 (default)
+Setting boundary for variable pressure
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option pressure:evolve_bndry = 0 (default)
+Setting boundary for variable v
+Setting boundary for variable v_x
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option v_x:evolve_bndry = 0 (default)
+Setting boundary for variable v_y
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option v_y:evolve_bndry = 0 (default)
+Setting boundary for variable v_z
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option v_z:evolve_bndry = 0 (default)
+Setting boundary for variable B
+Setting boundary for variable Bx
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option Bx:evolve_bndry = 0 (default)
+Setting boundary for variable By
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option By:evolve_bndry = 0 (default)
+Setting boundary for variable Bz
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option Bz:evolve_bndry = 0 (default)
+dx[0,0] = 7.812500e-03, dy[0,0] = 7.812500e-03, dz = 6.283185e+00
+Setting boundary for variable DivB
+	Option mhd:v_fact = 1 (default)
+	Option datadir = data ()
+	Option dump_format = nc (default)
+	Option restart_format = nc (default)
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+	Option nout = 30 (data/BOUT.inp)
+	Option timestep = 0.02 (data/BOUT.inp)
+	Option solver:NOUT = 30 (default)
+	Option solver:output_step = 0.02 (default)
+Solver running for 30 outputs with output timestep of 2.000000e-02
+Initialising solver
+Initialising SUNDIALS' CVODE solver
+	3d fields = 8, 2d fields = 0 neq=131072, local_N=131072
+	Option solver:diagnose = 0 (default)
+	Option solver:adams_moulton = 0 (default)
+	Using BDF method
+	Option solver:func_iter = 0 (default)
+	Option solver:cvode_max_order = -1 (default)
+	Option solver:cvode_stability_limit_detection = 0 (default)
+	Option solver:atol = 1e-10 (data/BOUT.inp)
+	Option solver:rtol = 1e-05 (data/BOUT.inp)
+	Option solver:use_vector_abstol = 0 (default)
+	Option solver:mxstep = 5000 (data/BOUT.inp)
+	Option solver:max_timestep = -1 (default)
+	Option solver:min_timestep = -1 (default)
+	Option solver:start_timestep = -1 (default)
+	Option solver:mxorder = -1 (default)
+	Using Newton iteration
+	Option solver:maxl = 5 (default)
+	Option solver:use_precon = 0 (default)
+	No preconditioning
+	Option solver:use_jacobian = 0 (default)
+	Using difference quotient approximation for Jacobian
+Running simulation
+
+
+Run started at  : Tue 18 Oct 2022 03:02:29 AM UTC
+	Option restart = false (default)
+	Option append = false (default)
+	Option dump_on_restart = 1 (default)
+	Option wall_limit = -1 (default)
+	Option stopCheck = 0 (default)
+Sim Time  |  RHS evals  | Wall Time |  Calc    Inv   Comm    I/O   SOLVER
+
+0.000e+00          1       1.99e-02    41.4    0.0    2.7   61.8   -5.8
+|  Step 0 of 30. Elapsed 0:00:00.0 ETA 0:00:00.62.000e-02         77       1.31e+00    41.6    0.0    0.4    1.5   56.5
+/  Step 1 of 30. Elapsed 0:00:01.3 ETA 0:00:38.04.000e-02         65       1.14e+00    40.2    0.0    0.3    1.3   58.1
+-  Step 2 of 30. Elapsed 0:00:02.5 ETA 0:00:32.06.000e-02         74       1.33e+00    39.2    0.0    0.4    1.1   59.4
+\  Step 3 of 30. Elapsed 0:00:03.8 ETA 0:00:35.88.000e-02         84       1.49e+00    39.7    0.0    0.4    0.9   59.0
+|  Step 4 of 30. Elapsed 0:00:05.3 ETA 0:00:38.81.000e-01         82       1.48e+00    41.6    0.0    0.4    1.2   56.9
+/  Step 5 of 30. Elapsed 0:00:06.8 ETA 0:00:37.11.200e-01        153       2.66e+00    42.1    0.0    0.4    0.6   57.0
+-  Step 6 of 30. Elapsed 0:00:09.4 ETA 0:01:03.81.400e-01        240       4.10e+00    42.4    0.0    0.4    0.3   56.9
+\  Step 7 of 30. Elapsed 0:00:13.5 ETA 0:01:34.21.600e-01        460       8.15e+00    41.3    0.0    0.4    0.2   58.1
+|  Step 8 of 30. Elapsed 0:00:21.7 ETA 0:02:59.21.800e-01        562       9.79e+00    41.3    0.0    0.4    0.1   58.2
+/  Step 9 of 30. Elapsed 0:00:31.5 ETA 0:03:25.52.000e-01        593       1.02e+01    41.0    0.0    0.4    0.1   58.5
+-  Step 10 of 30. Elapsed 0:00:41.6 ETA 0:03:23.42.200e-01        709       1.25e+01    40.6    0.0    0.4    0.1   58.9
+\  Step 11 of 30. Elapsed 0:00:54.1 ETA 0:03:57.42.400e-01        868       1.53e+01    41.6    0.0    0.4    0.1   57.9
+|  Step 12 of 30. Elapsed 0:01:09.4 ETA 0:04:34.72.600e-01       1024       1.77e+01    41.4    0.0    0.4    0.1   58.2
+/  Step 13 of 30. Elapsed 0:01:27.1 ETA 0:05:01.22.800e-01       1401       2.38e+01    42.4    0.0    0.4    0.1   57.2
+-  Step 14 of 30. Elapsed 0:01:50.9 ETA 0:06:20.53.000e-01       1612       2.74e+01    42.3    0.0    0.4    0.1   57.3
+\  Step 15 of 30. Elapsed 0:02:18.3 ETA 0:06:51.13.200e-01       1407       2.40e+01    41.9    0.0    0.4    0.1   57.6
+|  Step 16 of 30. Elapsed 0:02:42.3 ETA 0:05:36.03.400e-01       1392       2.40e+01    41.6    0.0    0.4    0.1   57.9
+/  Step 17 of 30. Elapsed 0:03:06.3 ETA 0:05:11.93.600e-01       1363       2.33e+01    42.3    0.0    0.4    0.1   57.2
+-  Step 18 of 30. Elapsed 0:03:29.6 ETA 0:04:39.73.800e-01       1290       2.27e+01    42.7    0.0    0.4    0.1   56.8
+\  Step 19 of 30. Elapsed 0:03:52.3 ETA 0:04:09.64.000e-01       1279       2.18e+01    42.1    0.0    0.4    0.1   57.4
+|  Step 20 of 30. Elapsed 0:04:14.1 ETA 0:03:38.04.200e-01       1237       2.16e+01    42.6    0.0    0.4    0.1   56.9
+/  Step 21 of 30. Elapsed 0:04:35.7 ETA 0:03:14.24.400e-01       1184       2.00e+01    42.1    0.0    0.4    0.1   57.4
+-  Step 22 of 30. Elapsed 0:04:55.6 ETA 0:02:39.84.600e-01       1052       1.78e+01    42.0    0.0    0.4    0.1   57.5
+\  Step 23 of 30. Elapsed 0:05:13.4 ETA 0:02:04.64.800e-01        947       1.63e+01    41.6    0.0    0.4    0.1   58.0
+|  Step 24 of 30. Elapsed 0:05:29.7 ETA 0:01:37.75.000e-01        951       1.63e+01    41.5    0.0    0.4    0.1   58.0
+/  Step 25 of 30. Elapsed 0:05:46.0 ETA 0:01:21.45.200e-01        777       1.34e+01    41.2    0.0    0.4    0.1   58.3
+-  Step 26 of 30. Elapsed 0:05:59.4 ETA 0:00:53.45.400e-01        775       1.35e+01    41.0    0.0    0.4    0.1   58.5
+\  Step 27 of 30. Elapsed 0:06:12.9 ETA 0:00:40.55.600e-01        837       1.43e+01    41.9    0.0    0.4    0.1   57.6
+|  Step 28 of 30. Elapsed 0:06:27.2 ETA 0:00:28.65.800e-01        822       1.40e+01    42.0    0.0    0.4    0.1   57.5
+/  Step 29 of 30. Elapsed 0:06:41.1 ETA 0:00:14.06.000e-01        823       1.42e+01    41.3    0.0    0.4    0.1   58.3
+-  Step 30 of 30. Elapsed 0:06:55.4 ETA 0:00:00.0
+Run finished at  : Tue 18 Oct 2022 03:09:24 AM UTC
+Run time : 6 m 55 s
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings
+	Option time_report:show = 0 (default)

@@ -1,0 +1,357 @@
+BOUT++ version 5.0.0-alpha
+Revision: 4cee87c3c0173fece6e0651afac52e90ab815699
+MD5 checksum: 42a662529276f89d1b7abd74bbcb6c89
+Code compiled on Jan  5 2021 at 22:29:38
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 1
+
+pid: 44
+
+Compile-time options:
+	Runtime error checking enabled, level 2
+	netCDF4 support enabled
+	Parallel NetCDF support disabled
+	FFT support enabled
+	Natural language support enabled
+	HDF5 support enabled
+	LAPACK support enabled
+	NetCDF support enabled
+	PETSc support enabled
+	Pretty function name support enabled
+	PVODE support enabled
+	Score-P support disabled
+	SLEPc support disabled
+	SUNDIALS support enabled
+	Backtrace in exceptions enabled
+	Colour in logs enabled
+	OpenMP parallelisation enabled, using 2 threads
+	Extra debug output disabled
+	Floating-point exceptions disabled
+	Signal handling support enabled
+	Field name tracking disabled
+	Compiled with flags : "-DMD5SUM=42a662529276f89d1b7abd74bbcb6c89 -DBOUT_REVISION=4cee87c3c0173fece6e0651afac52e90ab815699 -g -Wall -Wextra -Wnull-dereference -Wno-cast-function-type -O2 -DCHECK=2 -fPIC -DBOUT_LOCALE_PATH=/usr/local/share/locale -fopenmp"
+	Command line options for this run : ./blob2d 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+
+Getting grid data from options
+	Option mesh:type = bout (default)
+	Option mesh:include_corner_cells = 1 (default)
+	Option mesh:StaggerGrids = 0 (default)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddx:first = c2 (data/BOUT.inp)
+	Option mesh:ddx:second = c2 (data/BOUT.inp)
+	Option mesh:ddx:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:first = fft (data/BOUT.inp)
+	Option mesh:ddz:second = fft (data/BOUT.inp)
+	Option mesh:ddz:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddx:first = c2 (data/BOUT.inp)
+	Option mesh:ddx:second = c2 (data/BOUT.inp)
+	Option mesh:ddx:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:first = fft (data/BOUT.inp)
+	Option mesh:ddz:second = fft (data/BOUT.inp)
+	Option mesh:ddz:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c2 (data/BOUT.inp)
+	Option mesh:ddy:second = c2 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option optionfile = BOUT.inp ()
+WARNING: The default of this option has changed in release 4.1.
+If you want the old setting, you have to specify mesh:symmetricGlobalY=false in BOUT.inp
+	Option mesh:symmetricGlobalY = 1 (default)
+Loading mesh
+	Option input:transform_from_field_aligned = 1 (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option mesh:nx = 260 (data/BOUT.inp)
+	Option mesh:ny = 1 (data/BOUT.inp)
+	Option mesh:nz = 256 (data/BOUT.inp)
+	Read nz from input grid file
+	Grid size: 260 x 1 x 256
+Variable 'MXG' not in mesh options. Setting to 0
+	Option mxg = 2 (data/BOUT.inp)
+Variable 'MYG' not in mesh options. Setting to 0
+	Option myg = 0 (data/BOUT.inp)
+	Guard cells (x,y,z): 2, 0, 0
+Variable 'ixseps1' not in mesh options. Setting to 260
+Variable 'ixseps2' not in mesh options. Setting to 260
+Variable 'jyseps1_1' not in mesh options. Setting to -1
+Variable 'jyseps1_2' not in mesh options. Setting to 0
+Variable 'jyseps2_1' not in mesh options. Setting to 0
+Variable 'jyseps2_2' not in mesh options. Setting to 0
+Variable 'ny_inner' not in mesh options. Setting to 0
+Finding value for NXPE (ideal = 16.000000)
+	Candidate value: 1
+	 -> Good value
+	Domain split (NXPE=1, NYPE=1) into domains (localNx=256, localNy=1)
+	Option IncIntShear = 0 (default)
+	Option periodicX = 0 (default)
+	Option async_send = 0 (default)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+Connection between top of Y processor 0 and bottom of 0 in range 0 <= x < 260
+=> This processor sending in up
+=> This processor sending in down
+WARNING adding connection: poloidal index -1 out of range
+	MYPE_IN_CORE = 1
+	DXS = 260, DIN = 0. DOUT = -1
+	UXS = 260, UIN = 0. UOUT = -1
+	XIN = -1, XOUT = -1
+	Twist-shift: DI UI 
+	Option TwistShift = 0 (default)
+Variable 'ShiftAngle' not in mesh options. Setting to empty vector
+Boundary regions in this processor: core, sol, 
+Constructing default regions
+	Boundary region inner X
+	Boundary region outer X
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 0 (default)
+	Option mesh:dx = 0.3 (data/BOUT.inp)
+Variable 'dy' not in mesh options. Setting to 1.000000e+00
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	Option mesh:dz = 0.3 (data/BOUT.inp)
+Variable 'g11' not in mesh options. Setting to 1.000000e+00
+Variable 'g22' not in mesh options. Setting to 1.000000e+00
+Variable 'g33' not in mesh options. Setting to 1.000000e+00
+Variable 'g12' not in mesh options. Setting to 0.000000e+00
+Variable 'g13' not in mesh options. Setting to 0.000000e+00
+Variable 'g23' not in mesh options. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+Variable 'J' not in mesh options. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+Variable 'Bxy' not in mesh options. Setting to 0.000000e+00
+	WARNING: Magnitude of B field 'Bxy' not found. Calculating from metric tensor
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+Variable 'd2x' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+Variable 'd2y' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+Variable 'ShiftTorsion' not in mesh options. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform:type = identity (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF4 format for file 'data/BOUT.dmp.nc'
+	Option restart:parallel = 0 (default)
+	Option restart:flush = 1 (default)
+	Option restart:guards = 1 (default)
+	Option restart:floats = 0 (default)
+	Option restart:openclose = 1 (default)
+	Option restart:enabled = 1 (default)
+	Option restart:init_missing = 0 (default)
+	Option restart:shiftOutput = 0 (default)
+	Option restart:shiftInput = 0 (default)
+	Option restart:flushFrequency = 1 (default)
+	Option solver:type = cvode (default)
+	Option solver:monitor_timestep = 0 (default)
+	Option solver:is_nonsplit_model_diffusive = 1 (default)
+	Option solver:mms = 0 (default)
+	Option solver:mms_initialise = 0 (default)
+	Option restart = 0 (default)
+	Option model:te0 = 5 (data/BOUT.inp)
+	Option model:e = 1.602e-19 (default)
+	Option model:m_i = 3.334e-27 (default)
+	Option model:m_e = 9.11e-31 (default)
+	Option model:n0 = 2e+18 (data/BOUT.inp)
+	Option model:d_vort = 1e-06 (data/BOUT.inp)
+	Option model:d_n = 1e-06 (data/BOUT.inp)
+	Option model:r_c = 1.5 (data/BOUT.inp)
+	Option model:L_par = 10 (default)
+	Option model:B0 = 0.35 (default)
+	Option model:compressible = false (data/BOUT.inp)
+	Option model:boussinesq = true (data/BOUT.inp)
+	Option model:sheath = 1 (default)
+
+
+	----------Parameters: ------------ 
+	Omega_i = 1.681764e+07 /s,
+	c_s = 1.550006e+04 m/s,
+	rho_s = 9.216552e-04 m
+	delta_* = rho_s * (dn/n) * 9.372772e+00 	Option phiboussinesq:type = cyclic (default)
+Initialising Laplacian inversion routines
+	Option phiboussinesq:async = 1 (default)
+	Option phiboussinesq:filter = 0 (default)
+	Option phiboussinesq:maxmode = 128 (default)
+	Option phiboussinesq:low_mem = 0 (default)
+	Option phiboussinesq:nonuniform = 1 (default)
+	Option phiboussinesq:all_terms = 1 (default)
+	Option phiboussinesq:global_flags = 0 (default)
+	Option phiboussinesq:inner_boundary_flags = 0 (default)
+	Option phiboussinesq:outer_boundary_flags = 0 (default)
+	Option phiboussinesq:include_yguards = 0 (default)
+	Option phiboussinesq:extra_yguards_lower = 0 (default)
+	Option phiboussinesq:extra_yguards_upper = 0 (default)
+	Option phiboussinesq:dst = 0 (default)
+Setting boundary for variable n
+	core region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	sol region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option n:function = 1 + blob1 + blob2 (data/BOUT.inp)
+	Option n:blob1 = height * exp(-((x-0.35)/width)^2 - ((z/(2*pi) - 0.5)/width)^2) (data/BOUT.inp)
+	Option n:height = 0.5 (data/BOUT.inp)
+	Option n:width = 0.05 (data/BOUT.inp)
+	Option n:blob2 = height * exp(-((x-0.15)/width)^2 - ((z/(2*pi) - 0.4)/width)^2) (data/BOUT.inp)
+	Option n:scale = 1 (data/BOUT.inp)
+	Option all:evolve_bndry = 0 (default)
+	Option n:evolve_bndry = 0 (default)
+Setting boundary for variable omega
+	core region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	sol region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option omega:evolve_bndry = 0 (default)
+	Option datadir = data ()
+	Option dump_format = nc (default)
+	Option restart_format = nc (default)
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+	Option nout = 50 (data/BOUT.inp)
+	Option timestep = 50 (data/BOUT.inp)
+	Option solver:NOUT = 50 (default)
+	Option solver:output_step = 50 (default)
+Solver running for 50 outputs with output timestep of 5.000000e+01
+Initialising solver
+Initialising SUNDIALS' CVODE solver
+	3d fields = 2, 2d fields = 0 neq=131072, local_N=131072
+	Option solver:diagnose = 0 (default)
+	Option solver:adams_moulton = 0 (default)
+	Using BDF method
+	Option solver:func_iter = 0 (default)
+	Option solver:cvode_max_order = -1 (default)
+	Option solver:cvode_stability_limit_detection = 0 (default)
+	Option solver:atol = 1e-10 (data/BOUT.inp)
+	Option solver:rtol = 1e-05 (data/BOUT.inp)
+	Option solver:use_vector_abstol = 0 (default)
+	Option solver:mxstep = 10000 (data/BOUT.inp)
+	Option solver:max_timestep = -1 (default)
+	Option solver:min_timestep = -1 (default)
+	Option solver:start_timestep = -1 (default)
+	Option solver:mxorder = -1 (default)
+	Using Newton iteration
+	Option solver:maxl = 5 (default)
+	Option solver:use_precon = 0 (default)
+	No preconditioning
+	Option solver:use_jacobian = 0 (default)
+	Using difference quotient approximation for Jacobian
+Running simulation
+
+
+Run started at  : Tue 18 Oct 2022 05:09:02 AM UTC
+	Option restart = false (default)
+	Option append = false (default)
+	Option dump_on_restart = 1 (default)
+	Option fft:fft_measurement_flag = estimate (default)
+	Option laplace:type = cyclic (default)
+Initialising Laplacian inversion routines
+	Option laplace:async = 1 (default)
+	Option laplace:filter = 0 (default)
+	Option laplace:maxmode = 128 (default)
+	Option laplace:low_mem = 0 (default)
+	Option laplace:nonuniform = 1 (default)
+	Option laplace:all_terms = 1 (default)
+	Option laplace:global_flags = 0 (default)
+	Option laplace:inner_boundary_flags = 0 (default)
+	Option laplace:outer_boundary_flags = 0 (default)
+	Option laplace:include_yguards = 0 (default)
+	Option laplace:extra_yguards_lower = 0 (default)
+	Option laplace:extra_yguards_upper = 0 (default)
+	Option laplace:dst = 0 (default)
+	Option wall_limit = -1 (default)
+	Option stopCheck = 0 (default)
+Sim Time  |  RHS evals  | Wall Time |  Calc    Inv   Comm    I/O   SOLVER
+
+0.000e+00          1       2.90e-02    39.5   34.5    0.6   18.2    7.2
+5.000e+01         61       1.46e+00    44.0   10.5    0.1    1.1   44.4
+1.000e+02         31       6.85e-01    41.8   10.0    0.1    1.9   46.2
+1.500e+02         46       9.34e-01    43.8   10.8    0.1    1.3   44.1
+2.000e+02         81       1.61e+00    44.7   10.8    0.1    0.7   43.7
+2.500e+02        118       2.34e+00    44.9   10.7    0.1    0.5   43.8
+3.000e+02        184       3.67e+00    44.8   10.8    0.1    0.3   44.0
+3.500e+02        216       4.34e+00    44.8   10.9    0.1    0.3   43.9
+4.000e+02        255       5.34e+00    42.9   10.4    0.1    0.2   46.5
+4.500e+02        286       5.91e+00    43.3   10.5    0.1    0.2   46.0
+5.000e+02        310       6.24e+00    43.4   10.7    0.1    0.2   45.6
+5.500e+02        291       5.98e+00    43.5   10.5    0.1    0.2   45.7
+6.000e+02        290       5.95e+00    43.3   10.6    0.1    0.2   45.9
+6.500e+02        272       5.60e+00    43.4   10.5    0.1    0.2   45.8
+7.000e+02        241       5.24e+00    40.5    9.9    0.1    0.2   49.2
+7.500e+02        250       5.18e+00    41.8   10.3    0.1    0.2   47.6
+8.000e+02        270       5.69e+00    41.1   10.1    0.1    0.2   48.5
+8.500e+02        296       6.38e+00    41.3   10.1    0.1    0.2   48.4
+9.000e+02        285       6.05e+00    41.6   10.2    0.1    0.2   47.9
+9.500e+02        346       7.33e+00    41.3   10.1    0.1    0.2   48.3
+1.000e+03        350       7.22e+00    43.1   10.5    0.1    0.2   46.2
+1.050e+03        370       7.79e+00    41.8   10.2    0.1    0.1   47.8
+1.100e+03        411       8.49e+00    42.7   10.3    0.1    0.1   46.8
+1.150e+03        370       7.69e+00    42.5   10.4    0.1    0.2   46.9
+1.200e+03        343       7.21e+00    42.5   10.4    0.1    0.2   46.9
+1.250e+03        336       7.28e+00    41.0    9.9    0.1    0.2   48.9
+1.300e+03        333       6.87e+00    43.3   10.5    0.1    0.2   46.0
+1.350e+03        270       5.82e+00    41.9   10.1    0.1    0.2   47.7
+1.400e+03        208       4.89e+00    39.6    9.6    0.1    0.3   50.5
+1.450e+03        256       5.75e+00    41.1    9.9    0.1    0.2   48.7
+1.500e+03        253       5.67e+00    41.0    9.9    0.1    0.2   48.9
+1.550e+03        264       5.73e+00    40.9    9.9    0.1    0.2   48.8
+1.600e+03        333       7.06e+00    42.5   10.3    0.1    0.2   46.9
+1.650e+03        269       6.00e+00    41.1    9.9    0.1    0.2   48.7
+1.700e+03        258       5.45e+00    41.6   10.2    0.1    0.2   47.9
+1.750e+03        245       5.60e+00    40.5    9.9    0.1    0.2   49.2
+1.800e+03        243       5.33e+00    42.2   10.3    0.1    0.2   47.2
+1.850e+03        224       5.17e+00    38.9    9.5    0.1    0.2   51.4
+1.900e+03        227       4.95e+00    41.4   10.0    0.1    0.3   48.2
+1.950e+03        215       4.93e+00    39.6    9.6    0.1    0.3   50.4
+2.000e+03        211       4.76e+00    40.2    9.7    0.1    0.3   49.7
+2.050e+03        216       4.80e+00    40.3    9.8    0.1    0.3   49.5
+2.100e+03        210       4.82e+00    39.8    9.6    0.1    0.2   50.3
+2.150e+03        212       4.81e+00    40.1    9.7    0.1    0.3   49.8
+2.200e+03        212       4.75e+00    40.1    9.6    0.1    0.3   49.9
+2.250e+03        255       5.40e+00    42.1   10.2    0.1    0.3   47.3
+2.300e+03        319       6.40e+00    44.1   10.8    0.1    0.2   44.9
+2.350e+03        324       6.61e+00    44.2   10.8    0.1    0.3   44.7
+2.400e+03        299       6.31e+00    43.9   10.7    0.1    0.2   45.2
+2.450e+03        309       6.41e+00    43.4   10.6    0.1    0.2   45.7
+2.500e+03        259       5.56e+00    41.9   10.2    0.1    0.2   47.6
+
+Run finished at  : Tue 18 Oct 2022 05:13:33 AM UTC
+Run time : 4 m 31 s
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings
+	Option time_report:show = 0 (default)

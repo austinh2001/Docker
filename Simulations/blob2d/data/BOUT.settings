@@ -1,0 +1,196 @@
+append = false		# type: bool, doc: Add new outputs to the end of existing files? If false, overwrite files.
+async_send = false		# type: bool, doc: Whether to use asyncronous MPI sends
+datadir = data		# type: string
+dump_format = nc		# type: string
+dump_on_restart = true		# type: bool, doc: Write initial state as time point 0?
+incintshear = false		# type: bool
+mxg = 2		# type: int, doc: Number of guard cells on each side in X
+myg = 0		# type: int, doc: Number of guard cells on each side in Y
+non_uniform = true		# type: bool
+nout = 50		# type: int, doc: Number of output steps
+optionfile = BOUT.inp		# type: string
+periodicx = false		# type: bool, doc: Make grid periodic in X?
+restart = false		# type: bool, doc: Load state from restart files?
+restart_format = nc		# type: string
+settingsfile = BOUT.settings		# type: string
+stopcheck = false		# type: bool, doc: Check if a file exists, and exit if it does.
+timestep = 50		# type: BoutReal, doc: Output time step size
+twistshift = false		# type: bool, doc: Apply a Twist-Shift boundary using ShiftAngle?
+wall_limit = -1		# type: BoutReal, doc: Wall time limit in hours. By default (< 0), no limit
+zmax = 1		# type: BoutReal
+zmin = 0		# type: BoutReal
+
+[all]
+bndry_all = neumann		# type: string
+evolve_bndry = false		# type: bool
+function = 0.0		# type: string
+scale = 0.0		# type: BoutReal
+
+[fft]
+fft_measurement_flag = estimate		# type: 20FFT_MEASUREMENT_FLAG, doc: Level speed measurements to optimise FFT settings: [estimate], measure, exhaustive
+
+[input]
+max_recursion_depth = 0		# type: string, doc: Maximum recursion depth allowed in expressions. 0 = no recursion; -1 = unlimited
+transform_from_field_aligned = true		# type: bool
+
+[laplace]
+all_terms = true		# type: bool, doc: Include first derivative terms?
+async = true		# type: bool, doc: Use asyncronous MPI send?
+dst = false		# type: bool
+extra_yguards_lower = 0		# type: int, doc: Exclude some number of points at the lower boundary, useful for staggered grids or when boundary conditions make inversion redundant
+extra_yguards_upper = 0		# type: int, doc: Exclude some number of points at the upper boundary, useful for staggered grids or when boundary conditions make inversion redundant
+filter = 0		# type: BoutReal, doc: Fraction of Z modes to filter out. Between 0 and 1
+global_flags = 0		# type: int, doc: Default flags
+include_yguards = false		# type: bool, doc: Solve Laplacian in Y guard cells?
+inner_boundary_flags = 0		# type: int, doc: Flags to set inner boundary condition
+low_mem = false		# type: bool, doc: If true, reduce the amount of memory used
+maxmode = 128		# type: int, doc: The maximum Z mode to solve for
+nonuniform = true		# type: bool, doc: Use non-uniform grid corrections? Default is the mesh setting.
+outer_boundary_flags = 0		# type: int, doc: Flags to set outer boundary condition
+type = cyclic		# type: string
+
+[mesh]
+calcparallelslices_on_communicate = true		# type: bool
+dx = 0.3
+dz = 0.3
+extrapolate_x = false		# type: bool
+extrapolate_y = false		# type: bool
+include_corner_cells = true		# type: bool, doc: Communicate corner guard and boundary cells. Can be set to false if you are sure that you will not need these cells, for mixed derivatives D2DXDY (or anything else), for example if your grid has orthogonal x- and y-directions.  This might slightly reduce communication time.
+maxregionblocksize = 64		# type: int
+nx = 260
+ny = 1
+nz = 256
+staggergrids = false		# type: bool
+symmetricglobalx = true		# type: bool
+symmetricglobaly = true		# type: bool
+type = bout		# type: string
+
+[mesh:ddx]
+first = c2		# type: string
+second = c2		# type: string
+upwind = w3		# type: string
+
+[mesh:ddy]
+first = c2		# type: string
+second = c2		# type: string
+upwind = w3		# type: string
+
+[mesh:ddz]
+fft_filter = 0		# type: BoutReal
+first = fft		# type: string
+second = fft		# type: string
+upwind = w3		# type: string
+
+[mesh:paralleltransform]
+type = identity		# type: string
+
+[model]
+b0 = 0.35		# type: BoutReal, doc: Value of magnetic field strength
+boussinesq = true		# type: bool, doc: Use Boussinesq approximation in vorticity
+compressible = false		# type: bool, doc: Compressible ExB term in density equation
+d_n = 1e-6		# type: BoutReal, doc: Density diffusion coefficient
+d_vort = 1e-6		# type: BoutReal, doc: Viscous diffusion coefficient
+e = 1.602e-19		# type: BoutReal
+l_par = 10		# type: BoutReal, doc: Parallel connection length
+m_e = 9.11e-31		# type: BoutReal
+m_i = 3.334e-27		# type: BoutReal
+n0 = 2e18		# type: BoutReal, doc: Background density in cubic m
+r_c = 1.5		# type: BoutReal, doc: Radius of curvature
+sheath = true		# type: bool, doc: Sheath closure
+te0 = 5		# type: BoutReal, doc: Temperature in eV
+
+[n]
+blob1 = height * exp(-((x-0.35)/width)^2 - ((z/(2*pi) - 0.5)/width)^2)
+blob2 = height * exp(-((x-0.15)/width)^2 - ((z/(2*pi) - 0.4)/width)^2)
+evolve_bndry = false		# type: bool
+function = 1 + blob1 + blob2		# type: string
+height = 0.5
+scale = 1.0		# type: BoutReal
+width = 0.05
+
+[omega]
+evolve_bndry = false		# type: bool
+
+[output]
+enabled = true		# type: bool
+floats = false		# type: bool
+flush = true		# type: bool
+flushfrequency = 1		# type: int
+guards = true		# type: bool
+init_missing = false		# type: bool
+openclose = true		# type: bool
+parallel = false		# type: bool
+shiftinput = false		# type: bool
+shiftoutput = false		# type: bool
+
+[phiboussinesq]
+all_terms = true		# type: bool, doc: Include first derivative terms?
+async = true		# type: bool, doc: Use asyncronous MPI send?
+dst = false		# type: bool
+extra_yguards_lower = 0		# type: int, doc: Exclude some number of points at the lower boundary, useful for staggered grids or when boundary conditions make inversion redundant
+extra_yguards_upper = 0		# type: int, doc: Exclude some number of points at the upper boundary, useful for staggered grids or when boundary conditions make inversion redundant
+filter = 0		# type: BoutReal, doc: Fraction of Z modes to filter out. Between 0 and 1
+flags = 0		# not used , from: data/BOUT.inp
+global_flags = 0		# type: int, doc: Default flags
+include_yguards = false		# type: bool, doc: Solve Laplacian in Y guard cells?
+inner_boundary_flags = 0		# type: int, doc: Flags to set inner boundary condition
+low_mem = false		# type: bool, doc: If true, reduce the amount of memory used
+maxmode = 128		# type: int, doc: The maximum Z mode to solve for
+nonuniform = true		# type: bool, doc: Use non-uniform grid corrections? Default is the mesh setting.
+outer_boundary_flags = 0		# type: int, doc: Flags to set outer boundary condition
+type = cyclic		# type: string
+
+[phisolver]
+flags = 0		# not used , from: data/BOUT.inp
+fourth_order = true		# not used , from: data/BOUT.inp
+pctype = user		# not used , from: data/BOUT.inp
+type = petsc		# not used , from: data/BOUT.inp
+
+[phisolver:precon]
+filter = 0.		# not used , from: data/BOUT.inp
+flags = 49152		# not used , from: data/BOUT.inp
+
+[restart]
+enabled = true		# type: bool
+floats = false		# type: bool
+flush = true		# type: bool
+flushfrequency = 1		# type: int
+guards = true		# type: bool
+init_missing = false		# type: bool
+openclose = true		# type: bool
+parallel = false		# type: bool
+shiftinput = false		# type: bool
+shiftoutput = false		# type: bool
+
+[run]
+finished = Tue Oct 18 05:13:33 2022
+		# not used , from: 
+revision = 4cee87c3c0173fece6e0651afac52e90ab815699		# not used , from: 
+started = Tue Oct 18 05:09:01 2022
+		# not used , from: 
+version = 5.0.0-alpha		# not used , from: 
+
+[solver]
+adams_moulton = false		# type: bool, doc: Use Adams Moulton implicit multistep. Otherwise BDF method.
+atol = 1.0e-10		# type: BoutReal, doc: Absolute tolerance
+cvode_max_order = -1		# type: int, doc: Maximum order of method to use. < 0 means no limit.
+cvode_stability_limit_detection = false		# type: bool
+diagnose = false		# type: bool, doc: Print solver diagnostic information?
+func_iter = false		# type: bool
+is_nonsplit_model_diffusive = true		# type: bool, doc: If not a split operator, treat RHS as diffusive?
+max_timestep = -1		# type: BoutReal, doc: Maximum time step size
+maxl = 5		# type: int, doc: Maximum number of linear iterations
+min_timestep = -1		# type: BoutReal, doc: Minimum time step size
+mms = false		# type: bool
+mms_initialise = false		# type: bool
+monitor_timestep = false		# type: bool
+mxorder = -1		# type: int
+mxstep = 10000		# type: int, doc: Maximum number of internal steps between outputs.
+nout = 50		# type: int, doc: Number of output steps. Overrides global setting.
+output_step = 50		# type: BoutReal, doc: Output time step size. Overrides global TIMESTEP setting.
+rtol = 1.0e-5		# type: BoutReal, doc: Relative tolerance
+start_timestep = -1		# type: BoutReal, doc: Starting time step. < 0 then chosen by CVODE.
+type = cvode		# type: string
+use_jacobian = false		# type: bool
+use_precon = false		# type: bool, doc: Use preconditioner?
+use_vector_abstol = false		# type: bool

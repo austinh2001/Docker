@@ -1,0 +1,334 @@
+BOUT++ version 5.0.0-alpha
+Revision: 4cee87c3c0173fece6e0651afac52e90ab815699
+MD5 checksum: 42a662529276f89d1b7abd74bbcb6c89
+Code compiled on Jan  5 2021 at 22:29:38
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 1
+
+pid: 43
+
+Compile-time options:
+	Runtime error checking enabled, level 2
+	netCDF4 support enabled
+	Parallel NetCDF support disabled
+	FFT support enabled
+	Natural language support enabled
+	HDF5 support enabled
+	LAPACK support enabled
+	NetCDF support enabled
+	PETSc support enabled
+	Pretty function name support enabled
+	PVODE support enabled
+	Score-P support disabled
+	SLEPc support disabled
+	SUNDIALS support enabled
+	Backtrace in exceptions enabled
+	Colour in logs enabled
+	OpenMP parallelisation enabled, using 2 threads
+	Extra debug output disabled
+	Floating-point exceptions disabled
+	Signal handling support enabled
+	Field name tracking disabled
+	Compiled with flags : "-DMD5SUM=42a662529276f89d1b7abd74bbcb6c89 -DBOUT_REVISION=4cee87c3c0173fece6e0651afac52e90ab815699 -g -Wall -Wextra -Wnull-dereference -Wno-cast-function-type -O2 -DCHECK=2 -fPIC -DBOUT_LOCALE_PATH=/usr/local/share/locale -fopenmp"
+	Command line options for this run : ./2fluid 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+	Option grid = uedge.grd_beta.nc (data/BOUT.inp)
+	Option mesh:file = uedge.grd_beta.nc (default)
+
+Getting grid data from file uedge.grd_beta.nc
+	Option format =  (default)
+	Option mesh:format =  (default)
+	Using NetCDF4 format for file 'uedge.grd_beta.nc'
+	Option mesh:type = bout (default)
+	Option mesh:include_corner_cells = 1 (default)
+	Option mesh:StaggerGrids = 0 (default)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddx:first = c2 (data/BOUT.inp)
+	Option mesh:ddx:second = c2 (data/BOUT.inp)
+	Option mesh:ddx:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:first = c4 (data/BOUT.inp)
+	Option mesh:ddz:second = c4 (data/BOUT.inp)
+	Option mesh:ddz:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddx:first = c2 (data/BOUT.inp)
+	Option mesh:ddx:second = c2 (data/BOUT.inp)
+	Option mesh:ddx:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:first = c4 (data/BOUT.inp)
+	Option mesh:ddz:second = c4 (data/BOUT.inp)
+	Option mesh:ddz:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option optionfile = BOUT.inp ()
+WARNING: The default of this option has changed in release 4.1.
+If you want the old setting, you have to specify mesh:symmetricGlobalY=false in BOUT.inp
+	Option mesh:symmetricGlobalY = 1 (default)
+Loading mesh
+	Option nx = 5 (uedge.grd_beta.nc)
+	Option ny = 32 (uedge.grd_beta.nc)
+	Option nz = 0 (uedge.grd_beta.nc) (default)
+	Option input:transform_from_field_aligned = 1 (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option mz = 33 (data/BOUT.inp)
+	Option nz = 33 (default)
+WARNING: Number of toroidal points should be 2^n for efficient FFT performance -- consider changing MZ (33) if using FFTs
+	Grid size: 5 x 32 x 33
+	Option MXG = 0 (uedge.grd_beta.nc) (default)
+	Option mxg = 2 (data/BOUT.inp)
+	Option MYG = 0 (uedge.grd_beta.nc) (default)
+	Option myg = 2 (data/BOUT.inp)
+	Guard cells (x,y,z): 2, 2, 0
+	Option ixseps1 = 5 (uedge.grd_beta.nc)
+	Option ixseps2 = 5 (uedge.grd_beta.nc)
+	Option jyseps1_1 = -1 (uedge.grd_beta.nc)
+	Option jyseps1_2 = 16 (uedge.grd_beta.nc)
+	Option jyseps2_1 = 16 (uedge.grd_beta.nc)
+	Option jyseps2_2 = 31 (uedge.grd_beta.nc)
+	Option ny_inner = 16 (uedge.grd_beta.nc) (default)
+Finding value for NXPE (ideal = 0.176777)
+	Candidate value: 1
+	 -> Good value
+	Domain split (NXPE=1, NYPE=1) into domains (localNx=1, localNy=32)
+	Option IncIntShear = 0 (default)
+	Option periodicX = 0 (default)
+	Option async_send = 0 (default)
+	Option zmin = 0 (data/BOUT.inp)
+	Option zmax = 1.53566e-05 (data/BOUT.inp)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+Connection between top of Y processor 0 and bottom of 0 in range 0 <= x < 5
+=> This processor sending in up
+=> This processor sending in down
+WARNING adding connection: poloidal index -1 out of range
+	MYPE_IN_CORE = 1
+	DXS = 5, DIN = 0. DOUT = -1
+	UXS = 5, UIN = 0. UOUT = -1
+	XIN = -1, XOUT = -1
+	Twist-shift: DI UI 
+	Option twistshift = false (data/BOUT.inp)
+Boundary regions in this processor: core, sol, 
+Constructing default regions
+	Boundary region inner X
+	Boundary region outer X
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 1 (default)
+WARNING: extrapolating input mesh quantities into y-boundary cells. Set option extrapolate_y=false to disable this.
+	Option zmin = 0 (data/BOUT.inp)
+	Option zmax = 1.53566e-05 (data/BOUT.inp)
+	Option dz = 2.92389e-06 (uedge.grd_beta.nc) (default)
+	WARNING: Could not read 'g11' from grid. Setting to 1.000000e+00
+	WARNING: Could not read 'g22' from grid. Setting to 1.000000e+00
+	WARNING: Could not read 'g33' from grid. Setting to 1.000000e+00
+	WARNING: Could not read 'g12' from grid. Setting to 0.000000e+00
+	WARNING: Could not read 'g13' from grid. Setting to 0.000000e+00
+	WARNING: Could not read 'g23' from grid. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+	WARNING: Could not read 'J' from grid. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+	Maximum difference in Bxy is 9.196519e-01
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+	WARNING: Could not read 'd2x' from grid. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+	WARNING: Could not read 'd2y' from grid. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+	WARNING: Could not read 'ShiftTorsion' from grid. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform:type = identity (default)
+	Option parallel_transform =  (uedge.grd_beta.nc) (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF4 format for file 'data/BOUT.dmp.nc'
+	Option restart:parallel = 0 (default)
+	Option restart:flush = 1 (default)
+	Option restart:guards = 1 (default)
+	Option restart:floats = 0 (default)
+	Option restart:openclose = 1 (default)
+	Option restart:enabled = 1 (default)
+	Option restart:init_missing = 0 (default)
+	Option restart:shiftOutput = 0 (default)
+	Option restart:shiftInput = 0 (default)
+	Option restart:flushFrequency = 1 (default)
+	Option solver:type = cvode (default)
+	Option solver:monitor_timestep = 0 (default)
+	Option solver:is_nonsplit_model_diffusive = 1 (default)
+	Option solver:mms = 0 (default)
+	Option solver:mms_initialise = 0 (default)
+	Option restart = 0 (default)
+Solving 6-variable 2-fluid equations
+	Option Te_x = 50 (uedge.grd_beta.nc)
+	Option Ti_x = 0.01 (uedge.grd_beta.nc)
+	Option Ni_x = 0.46 (uedge.grd_beta.nc)
+	Option bmag = 0.0803481 (uedge.grd_beta.nc)
+	Option 2fluid:aa = 2 (data/BOUT.inp)
+	Option 2fluid:zz = 1 (data/BOUT.inp)
+	Option 2fluid:estatic = false (data/BOUT.inp)
+	Option 2fluid:zeroelmass = true (data/BOUT.inp)
+	Option 2fluid:aparinepar = false (data/BOUT.inp)
+	Option 2fluid:zeff = 128 (data/BOUT.inp)
+	Option 2fluid:nu_perp = 1e-20 (data/BOUT.inp)
+	Option 2fluid:shearfactor = 0 (data/BOUT.inp)
+	Option 2fluid:nu_factor = 0.000518718 (data/BOUT.inp)
+	Option Ajpar:evolve = 1 (default)
+	Option mesh:paralleltransform:type = identity (default)
+Normalisation: rho_s = 1.269476e-02  wci = 3.848674e+06  beta_p = 1.435759e-01
+	Option hthe0 = 5.33682 (uedge.grd_beta.nc)
+    ****NOTE: input from BOUT, Z length needs to be divided by 4.203954e+02
+	Normalising to rho_s = 1.269476e-02
+Setting boundary for variable rho
+	core region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	sol region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+	Option all:evolve_bndry = 0 (default)
+	Option rho:evolve_bndry = 0 (default)
+Setting boundary for variable Ni
+	core region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	sol region: 	Option all:bndry_all = neumann (data/BOUT.inp)
+
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option ni:function = sin(y) * sin(z) (data/BOUT.inp)
+	Option ni:scale = 1e-08 (data/BOUT.inp)
+	Option all:evolve_bndry = false (default)
+	Option ni:evolve_bndry = 0 (default)
+=> Not evolving Apar
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option all:function = 0.0 (default)
+	Option all:scale = 0 (data/BOUT.inp)
+Setting boundary for variable jpar
+	core region: 	Option jpar:bndry_all = neumann (data/BOUT.inp)
+
+	sol region: 	Option jpar:bndry_all = neumann (data/BOUT.inp)
+
+	Option 2fluid:phiSolver:type = cyclic (default)
+Initialising Laplacian inversion routines
+	Option 2fluid:phiSolver:async = 1 (default)
+	Option 2fluid:phiSolver:filter = 0 (default)
+	Option 2fluid:phiSolver:maxmode = 16 (default)
+	Option 2fluid:phiSolver:low_mem = 0 (default)
+	Option 2fluid:phiSolver:nonuniform = 1 (default)
+	Option 2fluid:phiSolver:all_terms = 1 (default)
+	Option 2fluid:phiSolver:global_flags = 0 (default)
+	Option 2fluid:phiSolver:inner_boundary_flags = 0 (default)
+	Option 2fluid:phiSolver:outer_boundary_flags = 0 (default)
+	Option 2fluid:phiSolver:include_yguards = 0 (default)
+	Option 2fluid:phiSolver:extra_yguards_lower = 0 (default)
+	Option 2fluid:phiSolver:extra_yguards_upper = 0 (default)
+	Option 2fluid:phiSolver:dst = 0 (default)
+	Option datadir = data ()
+	Option dump_format = nc (default)
+	Option restart_format = nc (default)
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+	Option nout = 30 (data/BOUT.inp)
+	Option timestep = 10 (data/BOUT.inp)
+	Option solver:NOUT = 30 (default)
+	Option solver:output_step = 10 (default)
+Solver running for 30 outputs with output timestep of 1.000000e+01
+Initialising solver
+Initialising SUNDIALS' CVODE solver
+	3d fields = 2, 2d fields = 0 neq=2112, local_N=2112
+	Option solver:diagnose = 0 (default)
+	Option solver:adams_moulton = 0 (default)
+	Using BDF method
+	Option solver:func_iter = 0 (default)
+	Option solver:cvode_max_order = -1 (default)
+	Option solver:cvode_stability_limit_detection = 0 (default)
+	Option solver:atol = 1e-12 (data/BOUT.inp)
+	Option solver:rtol = 1e-07 (data/BOUT.inp)
+	Option solver:use_vector_abstol = 0 (default)
+	Option solver:mxstep = 500 (default)
+	Option solver:max_timestep = -1 (default)
+	Option solver:min_timestep = -1 (default)
+	Option solver:start_timestep = -1 (default)
+	Option solver:mxorder = -1 (default)
+	Using Newton iteration
+	Option solver:maxl = 5 (default)
+	Option solver:use_precon = 0 (default)
+	No preconditioning
+	Option solver:use_jacobian = 0 (default)
+	Using difference quotient approximation for Jacobian
+Running simulation
+
+
+Run started at  : Tue 18 Oct 2022 06:47:27 AM UTC
+	Option restart = false (default)
+	Option append = false (default)
+	Option dump_on_restart = 1 (default)
+	Option fft:fft_measurement_flag = estimate (default)
+	Option wall_limit = -1 (default)
+	Option stopCheck = 0 (default)
+Sim Time  |  RHS evals  | Wall Time |  Calc    Inv   Comm    I/O   SOLVER
+
+0.000e+00          1       9.08e-03     8.3   11.2    1.7   85.4   -6.5
+1.000e+01         16       3.85e-02    22.9    9.6    0.5   43.9   23.1
+2.000e+01         11       3.48e-02    20.0    8.4    0.4   48.5   22.8
+3.000e+01         11       2.90e-02    21.1    8.6    0.5   42.8   27.1
+4.000e+01          7       2.91e-02    13.9    5.9    0.3   55.8   24.0
+5.000e+01         21       3.97e-02    29.8   12.4    0.6   32.3   24.9
+6.000e+01          7       2.58e-02    15.4    6.5    0.3   48.2   29.5
+7.000e+01          7       2.68e-02    14.5    6.6    0.3   49.9   28.7
+8.000e+01          1       2.03e-02     3.8    1.9    0.1   62.6   31.6
+9.000e+01         24       4.53e-02    33.0   13.7    0.7   27.9   24.7
+1.000e+02         13       3.06e-02    23.2    9.8    0.5   39.4   27.1
+1.100e+02         19       3.57e-02    29.0   12.0    0.6   33.2   25.2
+1.200e+02          5       2.12e-02    12.8    5.7    0.3   51.9   29.3
+1.300e+02          7       2.43e-02    16.3    6.7    0.3   49.1   27.5
+1.400e+02          7       2.33e-02    16.1    7.6    0.3   47.5   28.5
+1.500e+02          1       1.79e-02     3.6    1.6    0.1   63.4   31.4
+1.600e+02         24       4.10e-02    32.0   13.1    0.6   29.1   25.2
+1.700e+02         12       2.85e-02    23.0    9.5    0.4   40.2   26.8
+1.800e+02         22       3.86e-02    31.1   12.6    0.6   31.2   24.5
+1.900e+02          7       2.39e-02    16.1    6.9    0.3   49.3   27.5
+2.000e+02         13       3.02e-02    23.8    9.9    0.6   38.7   27.0
+2.100e+02          1       2.01e-02     3.1    1.4    0.1   66.8   28.6
+2.200e+02         29       4.50e-02    35.2   14.4    0.6   26.1   23.6
+2.300e+02          7       2.38e-02    16.2    6.7    0.3   48.7   28.1
+2.400e+02          1       1.74e-02     3.7    1.7    0.1   63.6   30.9
+2.500e+02         24       4.04e-02    32.4   13.4    0.6   28.6   25.0
+2.600e+02          7       2.39e-02    16.0    6.8    0.3   48.6   28.2
+2.700e+02         17       3.36e-02    27.8   11.4    0.5   35.0   25.2
+2.800e+02         11       2.80e-02    21.7    9.0    0.4   40.5   28.4
+2.900e+02          7       2.37e-02    16.3    6.8    0.4   47.4   29.1
+3.000e+02         20       3.60e-02    30.3   12.8    0.6   32.1   24.2
+
+Run finished at  : Tue 18 Oct 2022 06:47:28 AM UTC
+Run time : 1 s
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings
+	Option time_report:show = 0 (default)

@@ -1,0 +1,158 @@
+BOUT++ version 5.0.0-alpha
+Revision: 4cee87c3c0173fece6e0651afac52e90ab815699
+MD5 checksum: 42a662529276f89d1b7abd74bbcb6c89
+Code compiled on Jan  5 2021 at 22:29:38
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 1
+
+pid: 55
+
+Compile-time options:
+	Runtime error checking enabled, level 2
+	netCDF4 support enabled
+	Parallel NetCDF support disabled
+	FFT support enabled
+	Natural language support enabled
+	HDF5 support enabled
+	LAPACK support enabled
+	NetCDF support enabled
+	PETSc support enabled
+	Pretty function name support enabled
+	PVODE support enabled
+	Score-P support disabled
+	SLEPc support disabled
+	SUNDIALS support enabled
+	Backtrace in exceptions enabled
+	Colour in logs enabled
+	OpenMP parallelisation enabled, using 2 threads
+	Extra debug output disabled
+	Floating-point exceptions disabled
+	Signal handling support enabled
+	Field name tracking disabled
+	Compiled with flags : "-DMD5SUM=42a662529276f89d1b7abd74bbcb6c89 -DBOUT_REVISION=4cee87c3c0173fece6e0651afac52e90ab815699 -g -Wall -Wextra -Wnull-dereference -Wno-cast-function-type -O2 -DCHECK=2 -fPIC -DBOUT_LOCALE_PATH=/usr/local/share/locale -fopenmp"
+	Command line options for this run : ./test-laplacexy 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+
+Getting grid data from options
+	Option mesh:type = bout (default)
+	Option mesh:include_corner_cells = 1 (default)
+	Option mesh:StaggerGrids = 0 (default)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option optionfile = BOUT.inp ()
+WARNING: The default of this option has changed in release 4.1.
+If you want the old setting, you have to specify mesh:symmetricGlobalY=false in BOUT.inp
+	Option mesh:symmetricGlobalY = 1 (default)
+Loading mesh
+	Option input:transform_from_field_aligned = 1 (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option mesh:nx = 20 (data/BOUT.inp)
+	Option mesh:ny = 32 (data/BOUT.inp)
+	Option mesh:nz = 1 (data/BOUT.inp)
+	Read nz from input grid file
+	Grid size: 20 x 32 x 1
+Variable 'MXG' not in mesh options. Setting to 0
+	Option MXG = 2 (default)
+Variable 'MYG' not in mesh options. Setting to 0
+	Option MYG = 2 (default)
+	Guard cells (x,y,z): 2, 2, 0
+Variable 'ixseps1' not in mesh options. Setting to 20
+Variable 'ixseps2' not in mesh options. Setting to 20
+Variable 'jyseps1_1' not in mesh options. Setting to -1
+Variable 'jyseps1_2' not in mesh options. Setting to 16
+Variable 'jyseps2_1' not in mesh options. Setting to 16
+Variable 'jyseps2_2' not in mesh options. Setting to 31
+Variable 'ny_inner' not in mesh options. Setting to 16
+Finding value for NXPE (ideal = 0.707107)
+	Candidate value: 1
+	 -> Good value
+	Domain split (NXPE=1, NYPE=1) into domains (localNx=16, localNy=32)
+	Option IncIntShear = 0 (default)
+	Option periodicX = 0 (default)
+	Option async_send = 0 (default)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+Connection between top of Y processor 0 and bottom of 0 in range 0 <= x < 20
+=> This processor sending in up
+=> This processor sending in down
+WARNING adding connection: poloidal index -1 out of range
+	MYPE_IN_CORE = 1
+	DXS = 20, DIN = 0. DOUT = -1
+	UXS = 20, UIN = 0. UOUT = -1
+	XIN = -1, XOUT = -1
+	Twist-shift: DI UI 
+	Option TwistShift = 0 (default)
+Variable 'ShiftAngle' not in mesh options. Setting to empty vector
+Boundary regions in this processor: core, sol, 
+Constructing default regions
+	Boundary region inner X
+	Boundary region outer X
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 0 (default)
+	Option mesh:dx = 1.0 (data/BOUT.inp)
+	Option mesh:dy = 1.0 (data/BOUT.inp)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	Option mesh:dz = 1 (data/BOUT.inp)
+Variable 'g11' not in mesh options. Setting to 1.000000e+00
+Variable 'g22' not in mesh options. Setting to 1.000000e+00
+Variable 'g33' not in mesh options. Setting to 1.000000e+00
+Variable 'g12' not in mesh options. Setting to 0.000000e+00
+Variable 'g13' not in mesh options. Setting to 0.000000e+00
+Variable 'g23' not in mesh options. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+Variable 'J' not in mesh options. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+Variable 'Bxy' not in mesh options. Setting to 0.000000e+00
+	WARNING: Magnitude of B field 'Bxy' not found. Calculating from metric tensor
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+Variable 'd2x' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+Variable 'd2y' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+Variable 'ShiftTorsion' not in mesh options. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform:type = identity (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF4 format for file 'data/BOUT.dmp.nc'
+Initialising PETSc
+	Option laplacexy:finite_volume = 1 (default)
+	Option laplacexy:core_bndry_dirichlet = 0 (default)
+	Option laplacexy:y_bndry = neumann (default)
+	Option laplacexy:direct = 0 (default)
+	Option laplacexy:rtol = 1e-05 (default)
+	Option laplacexy:atol = 1e-10 (default)
+	Option laplacexy:dtol = 1000 (default)
+	Option laplacexy:maxits = 100000 (default)
+	Option laplacexy:ksptype = gmres (data/BOUT.inp)
+	Option laplacexy:pctype = jacobi (data/BOUT.inp)
+	Option laplacexy:include_y_derivs = 1 (default)
+	Option laplacexy:rhs = sin(2*pi*x)*sin(y) (data/BOUT.inp)
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings
+	Option time_report:show = 0 (default)
+Finalising PETSc. Warning: Instances of PetscLib still exist.

@@ -1,0 +1,154 @@
+append = false		# type: bool, doc: Add new outputs to the end of existing files? If false, overwrite files.
+async_send = false		# type: bool, doc: Whether to use asyncronous MPI sends
+datadir = data		# type: string
+dump_format = nc		# type: string
+dump_on_restart = true		# type: bool, doc: Write initial state as time point 0?
+format = ""		# type: string
+grid = data/otv.grd.nc		# type: string
+incintshear = false		# type: bool
+mxg = 2		# type: int, doc: Number of guard cells on each side in X
+myg = 2		# type: int, doc: Number of guard cells on each side in Y
+mz = 1		# type: int
+non_uniform = true		# type: bool
+nout = 30		# type: int, doc: Number of output steps
+nz = 1		# type: int
+optionfile = BOUT.inp		# type: string
+periodicx = true		# type: bool, doc: Make grid periodic in X?
+restart = false		# type: bool, doc: Load state from restart files?
+restart_format = nc		# type: string
+settingsfile = BOUT.settings		# type: string
+shiftxderivs = false		# not used , from: data/BOUT.inp
+stopcheck = false		# type: bool, doc: Check if a file exists, and exit if it does.
+timestep = 0.02		# type: BoutReal, doc: Output time step size
+twistshift = false		# type: bool, doc: Apply a Twist-Shift boundary using ShiftAngle?
+wall_limit = -1		# type: BoutReal, doc: Wall time limit in hours. By default (< 0), no limit
+zmax = 1		# type: BoutReal
+zmin = 0		# type: BoutReal
+
+[all]
+evolve_bndry = false		# type: bool
+function = 0.0		# type: string
+scale = 0.0		# type: BoutReal
+
+[Bx]
+evolve_bndry = false		# type: bool
+
+[By]
+evolve_bndry = false		# type: bool
+
+[Bz]
+evolve_bndry = false		# type: bool
+
+[density]
+evolve_bndry = false		# type: bool
+
+[input]
+max_recursion_depth = 0		# type: string, doc: Maximum recursion depth allowed in expressions. 0 = no recursion; -1 = unlimited
+transform_from_field_aligned = true		# type: bool
+
+[mesh]
+calcparallelslices_on_communicate = true		# type: bool
+extrapolate_x = false		# type: bool
+extrapolate_y = true		# type: bool
+file = data/otv.grd.nc		# type: string
+format = ""		# type: string
+include_corner_cells = true		# type: bool, doc: Communicate corner guard and boundary cells. Can be set to false if you are sure that you will not need these cells, for mixed derivatives D2DXDY (or anything else), for example if your grid has orthogonal x- and y-directions.  This might slightly reduce communication time.
+maxregionblocksize = 64		# type: int
+staggergrids = false		# type: bool
+symmetricglobalx = true		# type: bool
+symmetricglobaly = true		# type: bool
+type = bout		# type: string
+
+[mesh:ddx]
+first = c4		# type: string
+second = c4		# type: string
+upwind = u1		# type: string
+
+[mesh:ddy]
+first = c2		# type: string
+second = c2		# type: string
+upwind = u1		# type: string
+
+[mesh:ddz]
+fft_filter = 0		# type: BoutReal
+first = c2		# type: string
+second = c2		# type: string
+upwind = u1		# type: string
+
+[mesh:paralleltransform]
+type = identity		# type: string
+
+[mhd]
+g = 1.66667		# type: BoutReal
+include_viscos = false		# type: bool
+v_fact = 1		# type: BoutReal
+viscos = 0.1		# type: BoutReal
+
+[output]
+enabled = true		# type: bool
+floats = false		# type: bool
+flush = true		# type: bool
+flushfrequency = 1		# type: int
+guards = true		# type: bool
+init_missing = false		# type: bool
+openclose = true		# type: bool
+parallel = false		# type: bool
+shiftinput = false		# type: bool
+shiftoutput = false		# type: bool
+
+[pressure]
+evolve_bndry = false		# type: bool
+
+[restart]
+enabled = true		# type: bool
+floats = false		# type: bool
+flush = true		# type: bool
+flushfrequency = 1		# type: int
+guards = true		# type: bool
+init_missing = false		# type: bool
+openclose = true		# type: bool
+parallel = false		# type: bool
+shiftinput = false		# type: bool
+shiftoutput = false		# type: bool
+
+[run]
+finished = Tue Oct 18 03:09:24 2022
+		# not used , from: 
+revision = 4cee87c3c0173fece6e0651afac52e90ab815699		# not used , from: 
+started = Tue Oct 18 03:02:28 2022
+		# not used , from: 
+version = 5.0.0-alpha		# not used , from: 
+
+[solver]
+adams_moulton = false		# type: bool, doc: Use Adams Moulton implicit multistep. Otherwise BDF method.
+atol = 1.0e-10		# type: BoutReal, doc: Absolute tolerance
+cvode_max_order = -1		# type: int, doc: Maximum order of method to use. < 0 means no limit.
+cvode_stability_limit_detection = false		# type: bool
+diagnose = false		# type: bool, doc: Print solver diagnostic information?
+func_iter = false		# type: bool
+is_nonsplit_model_diffusive = true		# type: bool, doc: If not a split operator, treat RHS as diffusive?
+max_timestep = -1		# type: BoutReal, doc: Maximum time step size
+maxl = 5		# type: int, doc: Maximum number of linear iterations
+min_timestep = -1		# type: BoutReal, doc: Minimum time step size
+mms = false		# type: bool
+mms_initialise = false		# type: bool
+monitor_timestep = false		# type: bool
+mxorder = -1		# type: int
+mxstep = 5000		# type: int, doc: Maximum number of internal steps between outputs.
+nout = 30		# type: int, doc: Number of output steps. Overrides global setting.
+output_step = 0.02		# type: BoutReal, doc: Output time step size. Overrides global TIMESTEP setting.
+rtol = 1.0e-5		# type: BoutReal, doc: Relative tolerance
+start_timestep = -1		# type: BoutReal, doc: Starting time step. < 0 then chosen by CVODE.
+type = cvode		# type: string
+use_jacobian = false		# type: bool
+use_precon = false		# type: bool, doc: Use preconditioner?
+use_vector_abstol = false		# type: bool
+
+[v_x]
+evolve_bndry = false		# type: bool
+
+[v_y]
+evolve_bndry = false		# type: bool
+
+[v_z]
+evolve_bndry = false		# type: bool

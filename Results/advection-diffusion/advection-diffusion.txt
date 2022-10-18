@@ -1,0 +1,286 @@
+BOUT++ version 5.0.0-alpha
+Revision: 4cee87c3c0173fece6e0651afac52e90ab815699
+MD5 checksum: 42a662529276f89d1b7abd74bbcb6c89
+Code compiled on Jan  5 2021 at 22:29:38
+
+B.Dudson (University of York), M.Umansky (LLNL) 2007
+Based on BOUT by Xueqiao Xu, 1999
+
+Processor number: 0 of 1
+
+pid: 55
+
+Compile-time options:
+	Runtime error checking enabled, level 2
+	netCDF4 support enabled
+	Parallel NetCDF support disabled
+	FFT support enabled
+	Natural language support enabled
+	HDF5 support enabled
+	LAPACK support enabled
+	NetCDF support enabled
+	PETSc support enabled
+	Pretty function name support enabled
+	PVODE support enabled
+	Score-P support disabled
+	SLEPc support disabled
+	SUNDIALS support enabled
+	Backtrace in exceptions enabled
+	Colour in logs enabled
+	OpenMP parallelisation enabled, using 2 threads
+	Extra debug output disabled
+	Floating-point exceptions disabled
+	Signal handling support enabled
+	Field name tracking disabled
+	Compiled with flags : "-DMD5SUM=42a662529276f89d1b7abd74bbcb6c89 -DBOUT_REVISION=4cee87c3c0173fece6e0651afac52e90ab815699 -g -Wall -Wextra -Wnull-dereference -Wno-cast-function-type -O2 -DCHECK=2 -fPIC -DBOUT_LOCALE_PATH=/usr/local/share/locale -fopenmp"
+	Command line options for this run : ./imex 
+Reading options file data/BOUT.inp
+Writing options to file data/BOUT.settings
+
+Getting grid data from options
+	Option mesh:type = bout (default)
+	Option mesh:include_corner_cells = 1 (default)
+	Option mesh:StaggerGrids = 0 (default)
+	Option mesh:maxregionblocksize = 64 (default)
+	Option mesh:calcParallelSlices_on_communicate = 1 (default)
+	Option mesh:ddx:first = c4 (data/BOUT.inp)
+	Option mesh:ddx:second = c4 (data/BOUT.inp)
+	Option mesh:ddx:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddx:flux = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:flux = u1 (data/BOUT.inp)
+	Option mesh:ddz:first = c4 (data/BOUT.inp)
+	Option mesh:ddz:second = c4 (data/BOUT.inp)
+	Option mesh:ddz:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:flux = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:flux = u1 (data/BOUT.inp)
+	Option mesh:ddx:first = c4 (data/BOUT.inp)
+	Option mesh:ddx:second = c4 (data/BOUT.inp)
+	Option mesh:ddx:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddx:flux = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:flux = u1 (data/BOUT.inp)
+	Option mesh:ddz:first = c4 (data/BOUT.inp)
+	Option mesh:ddz:second = c4 (data/BOUT.inp)
+	Option mesh:ddz:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddz:flux = u1 (data/BOUT.inp)
+	Option mesh:ddy:first = c4 (data/BOUT.inp)
+	Option mesh:ddy:second = c4 (data/BOUT.inp)
+	Option mesh:ddy:upwind = w3 (data/BOUT.inp)
+	Option mesh:ddy:flux = u1 (data/BOUT.inp)
+	Option mesh:ddz:fft_filter = 0 (default)
+	Option mesh:symmetricGlobalX = 1 (default)
+	Option optionfile = BOUT.inp ()
+WARNING: The default of this option has changed in release 4.1.
+If you want the old setting, you have to specify mesh:symmetricGlobalY=false in BOUT.inp
+	Option mesh:symmetricGlobalY = 1 (default)
+Loading mesh
+	Option input:transform_from_field_aligned = 1 (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option mesh:nx = 132 (data/BOUT.inp)
+	Option mesh:ny = 1 (data/BOUT.inp)
+	Option mesh:nz = 128 (data/BOUT.inp)
+	Read nz from input grid file
+	Grid size: 132 x 1 x 128
+Variable 'MXG' not in mesh options. Setting to 0
+	Option MXG = 2 (default)
+Variable 'MYG' not in mesh options. Setting to 0
+	Option myg = 0 (data/BOUT.inp)
+	Guard cells (x,y,z): 2, 0, 0
+Variable 'ixseps1' not in mesh options. Setting to 132
+Variable 'ixseps2' not in mesh options. Setting to 132
+Variable 'jyseps1_1' not in mesh options. Setting to -1
+Variable 'jyseps1_2' not in mesh options. Setting to 0
+Variable 'jyseps2_1' not in mesh options. Setting to 0
+Variable 'jyseps2_2' not in mesh options. Setting to 0
+Variable 'ny_inner' not in mesh options. Setting to 0
+Finding value for NXPE (ideal = 11.313708)
+	Candidate value: 1
+	 -> Good value
+	Domain split (NXPE=1, NYPE=1) into domains (localNx=128, localNy=1)
+	Option IncIntShear = 0 (default)
+	Option periodicx = true (data/BOUT.inp)
+	Option async_send = 0 (default)
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	EQUILIBRIUM IS SINGLE NULL (SND) 
+Connection between top of Y processor 0 and bottom of 0 in range 0 <= x < 132
+=> This processor sending in up
+=> This processor sending in down
+WARNING adding connection: poloidal index -1 out of range
+	MYPE_IN_CORE = 1
+	DXS = 132, DIN = 0. DOUT = -1
+	UXS = 132, UIN = 0. UOUT = -1
+	XIN = 0, XOUT = 0
+	Twist-shift: DI UI 
+	Option TwistShift = 0 (default)
+Variable 'ShiftAngle' not in mesh options. Setting to empty vector
+No boundary regions in this processor
+Constructing default regions
+	Option mesh:extrapolate_x = 0 (default)
+	Option mesh:extrapolate_y = 0 (default)
+	Option mesh:dx = 1 / nx (data/BOUT.inp)
+	Option mesh:nx = 132 (data/BOUT.inp)
+Variable 'dy' not in mesh options. Setting to 1.000000e+00
+	Option ZMIN = 0 (default)
+	Option ZMAX = 1 (default)
+	Option mesh:nz = 128 (data/BOUT.inp)
+	Option mesh:dz = 0.00806452 (data/BOUT.inp)
+Variable 'g11' not in mesh options. Setting to 1.000000e+00
+Variable 'g22' not in mesh options. Setting to 1.000000e+00
+Variable 'g33' not in mesh options. Setting to 1.000000e+00
+Variable 'g12' not in mesh options. Setting to 0.000000e+00
+Variable 'g13' not in mesh options. Setting to 0.000000e+00
+Variable 'g23' not in mesh options. Setting to 0.000000e+00
+	Local maximum error in diagonal inversion is 0.000000e+00
+	Local maximum error in off-diagonal inversion is 0.000000e+00
+Variable 'J' not in mesh options. Setting to 0.000000e+00
+	WARNING: Jacobian 'J' not found. Calculating from metric tensor
+Variable 'Bxy' not in mesh options. Setting to 0.000000e+00
+	WARNING: Magnitude of B field 'Bxy' not found. Calculating from metric tensor
+Calculating differential geometry terms
+	Communicating connection terms
+	Option non_uniform = 1 (default)
+Variable 'd2x' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2x' not found. Calculating from dx
+Variable 'd2y' not in mesh options. Setting to 0.000000e+00
+	WARNING: differencing quantity 'd2y' not found. Calculating from dy
+Variable 'ShiftTorsion' not in mesh options. Setting to 0.000000e+00
+	WARNING: No Torsion specified for zShift. Derivatives may not be correct
+	Option mesh:paralleltransform:type = identity (default)
+	done
+	Option append = 0 (default)
+	Option dump_format = nc (default)
+Setting up output (dump) file
+	Option output:parallel = 0 (default)
+	Option output:flush = 1 (default)
+	Option output:guards = 1 (default)
+	Option output:floats = 0 (default)
+	Option output:openclose = 1 (default)
+	Option output:enabled = 1 (default)
+	Option output:init_missing = 0 (default)
+	Option output:shiftOutput = 0 (default)
+	Option output:shiftInput = 0 (default)
+	Option output:flushFrequency = 1 (default)
+	Using NetCDF4 format for file 'data/BOUT.dmp.nc'
+	Option restart:parallel = 0 (default)
+	Option restart:flush = 1 (default)
+	Option restart:guards = 1 (default)
+	Option restart:floats = 0 (default)
+	Option restart:openclose = 1 (default)
+	Option restart:enabled = 1 (default)
+	Option restart:init_missing = 0 (default)
+	Option restart:shiftOutput = 0 (default)
+	Option restart:shiftInput = 0 (default)
+	Option restart:flushFrequency = 1 (default)
+	Option solver:type = splitrk (data/BOUT.inp)
+	Option solver:monitor_timestep = 0 (default)
+	Option solver:is_nonsplit_model_diffusive = 1 (default)
+	Option solver:mms = 0 (default)
+	Option solver:mms_initialise = 0 (default)
+	Option restart = 0 (default)
+Setting boundary for variable U
+	Option input:transform_from_field_aligned = true (default)
+	Option input:max_recursion_depth = 0 (default)
+	Option u:function = exp(-((x-0.5)/0.1)^2 - ((zs-0.5)/0.1)^2) (data/BOUT.inp?	Option all:scale = 1 (default)
+	Option all:evolve_bndry = 0 (default)
+	Option u:evolve_bndry = 0 (default)
+	Option datadir = data ()
+	Option dump_format = nc (default)
+	Option restart_format = nc (default)
+	Using NetCDF4 format for file 'data/BOUT.restart.nc'
+	Option nout = 50 (data/BOUT.inp)
+	Option timestep = 0.01 (data/BOUT.inp)
+	Option solver:NOUT = 50 (default)
+	Option solver:output_step = 0.01 (default)
+Solver running for 50 outputs with output timestep of 1.000000e-02
+Initialising solver
+
+	Split Runge-Kutta-Legendre and SSP-RK3 solver
+	Option solver:timestep = 0.0001 (data/BOUT.inp)
+	Option solver:adaptive = 1 (default)
+	Option solver:atol = 1e-10 (default)
+	Option solver:rtol = 1e-05 (default)
+	Option solver:max_timestep = 0.01 (default)
+	Option solver:max_timestep_change = 2 (default)
+	Option solver:mxstep = 1000 (default)
+	Option solver:adapt_period = 5 (data/BOUT.inp)
+	Using a timestep 1.000000e-04
+	Option solver:nstages = 9 (data/BOUT.inp)
+	Option solver:diagnose = 0 (default)
+Running simulation
+
+
+Run started at  : Tue 18 Oct 2022 06:37:26 AM UTC
+	Option restart = false (default)
+	Option append = false (default)
+	Option dump_on_restart = 1 (default)
+	Option wall_limit = -1 (default)
+	Option stopCheck = 0 (default)
+Sim Time  |  RHS_e evals  | RHS_I evals  | Wall Time |  Calc    Inv   Comm    I/O   SOLVER
+
+0.000e+00          1                1       7.86e-03     9.0    0.0    1.9   60.5   28.6
+|  Step 0 of 50. Elapsed 0:00:00.0 ETA 0:00:00.41.000e-02        403             2413       9.81e-01    60.3    0.0    1.1    1.2   37.4
+/  Step 1 of 50. Elapsed 0:00:01.0 ETA 0:00:48.12.000e-02         61              361       1.65e-01    55.8    0.0    1.1    5.7   37.4
+-  Step 2 of 50. Elapsed 0:00:01.2 ETA 0:00:07.93.000e-02         61              361       1.62e-01    56.5    0.0    1.2    5.6   36.7
+\  Step 3 of 50. Elapsed 0:00:01.3 ETA 0:00:07.64.000e-02         61              361       1.57e-01    56.3    0.0    1.0    5.5   37.2
+|  Step 4 of 50. Elapsed 0:00:01.5 ETA 0:00:07.25.000e-02         61              361       1.62e-01    56.5    0.0    1.1    5.1   37.3
+/  Step 5 of 50. Elapsed 0:00:01.6 ETA 0:00:07.36.000e-02         61              361       1.67e-01    55.7    0.0    1.1    5.2   38.0
+-  Step 6 of 50. Elapsed 0:00:01.8 ETA 0:00:07.47.000e-02         61              361       1.54e-01    56.8    0.0    1.0    5.2   36.9
+\  Step 7 of 50. Elapsed 0:00:02.0 ETA 0:00:06.68.000e-02         61              361       1.55e-01    56.8    0.0    1.0    5.4   36.8
+|  Step 8 of 50. Elapsed 0:00:02.1 ETA 0:00:06.59.000e-02         61              361       1.54e-01    56.5    0.0    1.0    5.5   36.9
+/  Step 9 of 50. Elapsed 0:00:02.3 ETA 0:00:06.31.0000e-01         61              361       1.57e-01    56.1    0.0    1.1    5.9   37.0
+-  Step 10 of 50. Elapsed 0:00:02.4 ETA 0:00:06.31.100e-01         61              361       1.63e-01    56.5    0.0    1.1    5.1   37.3
+\  Step 11 of 50. Elapsed 0:00:02.6 ETA 0:00:06.41.200e-01         61              361       1.54e-01    56.5    0.0    1.1    5.4   37.1
+|  Step 12 of 50. Elapsed 0:00:02.7 ETA 0:00:05.91.300e-01         61              361       1.57e-01    56.3    0.0    1.0    5.5   37.1
+/  Step 13 of 50. Elapsed 0:00:02.9 ETA 0:00:05.81.400e-01         61              361       1.58e-01    56.5    0.0    1.0    5.4   37.0
+-  Step 14 of 50. Elapsed 0:00:03.1 ETA 0:00:05.71.500e-01         61              361       1.68e-01    56.1    0.0    1.1    5.0   37.8
+\  Step 15 of 50. Elapsed 0:00:03.2 ETA 0:00:05.91.600e-01         61              361       1.59e-01    56.3    0.0    1.1    5.2   37.4
+|  Step 16 of 50. Elapsed 0:00:03.4 ETA 0:00:05.41.700e-01         61              361       1.54e-01    56.5    0.0    1.0    5.5   37.0
+/  Step 17 of 50. Elapsed 0:00:03.5 ETA 0:00:05.11.800e-01         61              361       1.54e-01    56.8    0.0    1.0    5.4   36.7
+-  Step 18 of 50. Elapsed 0:00:03.7 ETA 0:00:04.91.900e-01         61              361       1.60e-01    56.1    0.0    1.0    5.4   37.4
+\  Step 19 of 50. Elapsed 0:00:03.8 ETA 0:00:04.92.000e-01         61              361       1.54e-01    56.4    0.0    1.0    5.6   37.0
+|  Step 20 of 50. Elapsed 0:00:04.0 ETA 0:00:04.62.100e-01         61              361       1.60e-01    56.4    0.0    1.0    5.2   37.3
+/  Step 21 of 50. Elapsed 0:00:04.2 ETA 0:00:04.62.200e-01         61              361       1.57e-01    56.6    0.0    1.0    5.2   37.1
+-  Step 22 of 50. Elapsed 0:00:04.3 ETA 0:00:04.42.300e-01         61              361       1.53e-01    56.5    0.0    1.0    5.5   36.9
+\  Step 23 of 50. Elapsed 0:00:04.5 ETA 0:00:04.12.400e-01         61              361       1.60e-01    56.4    0.0    1.0    5.3   37.3
+|  Step 24 of 50. Elapsed 0:00:04.6 ETA 0:00:04.12.500e-01         61              361       1.54e-01    56.8    0.0    1.0    5.4   36.8
+/  Step 25 of 50. Elapsed 0:00:04.8 ETA 0:00:03.92.600e-01         61              361       1.55e-01    56.7    0.0    1.0    5.6   36.7
+-  Step 26 of 50. Elapsed 0:00:04.9 ETA 0:00:03.72.700e-01         61              361       1.58e-01    56.6    0.0    1.1    5.3   37.1
+\  Step 27 of 50. Elapsed 0:00:05.1 ETA 0:00:03.62.800e-01         61              361       1.56e-01    56.5    0.0    1.0    5.5   37.0
+|  Step 28 of 50. Elapsed 0:00:05.3 ETA 0:00:03.42.900e-01         61              361       1.64e-01    56.0    0.0    1.0    5.3   37.6
+/  Step 29 of 50. Elapsed 0:00:05.4 ETA 0:00:03.43.000e-01         61              361       1.57e-01    56.4    0.0    1.0    5.3   37.3
+-  Step 30 of 50. Elapsed 0:00:05.6 ETA 0:00:03.13.100e-01         61              361       1.56e-01    56.4    0.0    1.0    5.6   37.0
+\  Step 31 of 50. Elapsed 0:00:05.7 ETA 0:00:03.03.200e-01         61              361       1.56e-01    56.2    0.0    1.0    5.6   37.2
+|  Step 32 of 50. Elapsed 0:00:05.9 ETA 0:00:02.83.300e-01         61              361       1.59e-01    56.3    0.0    1.0    5.7   37.0
+/  Step 33 of 50. Elapsed 0:00:06.0 ETA 0:00:02.73.400e-01         61              361       1.64e-01    56.3    0.0    1.1    5.4   37.2
+-  Step 34 of 50. Elapsed 0:00:06.2 ETA 0:00:02.63.500e-01         61              361       1.75e-01    55.9    0.0    1.1    5.0   38.1
+\  Step 35 of 50. Elapsed 0:00:06.4 ETA 0:00:02.63.600e-01         67              397       1.70e-01    56.9    0.0    1.0    4.9   37.2
+|  Step 36 of 50. Elapsed 0:00:06.6 ETA 0:00:02.43.700e-01         52              307       1.32e-01    55.5    0.0    1.0    6.5   37.0
+/  Step 37 of 50. Elapsed 0:00:06.7 ETA 0:00:01.73.800e-01         91              541       2.27e-01    58.0    0.0    1.0    3.9   37.1
+-  Step 38 of 50. Elapsed 0:00:06.9 ETA 0:00:02.73.900e-01         73              433       1.81e-01    57.4    0.0    1.1    4.6   36.9
+\  Step 39 of 50. Elapsed 0:00:07.1 ETA 0:00:02.04.000e-01         82              487       2.08e-01    57.6    0.0    1.1    4.4   36.9
+|  Step 40 of 50. Elapsed 0:00:07.3 ETA 0:00:02.14.100e-01         73              433       1.82e-01    57.0    0.0    1.0    4.9   37.1
+/  Step 41 of 50. Elapsed 0:00:07.5 ETA 0:00:01.64.200e-01         79              469       2.01e-01    57.2    0.0    1.1    4.3   37.4
+-  Step 42 of 50. Elapsed 0:00:07.7 ETA 0:00:01.64.300e-01         70              415       1.75e-01    57.1    0.0    1.0    5.0   36.8
+\  Step 43 of 50. Elapsed 0:00:07.9 ETA 0:00:01.24.400e-01         61              361       1.55e-01    56.6    0.0    1.0    5.3   37.1
+|  Step 44 of 50. Elapsed 0:00:08.0 ETA 0:00:00.94.500e-01         61              361       1.53e-01    56.3    0.0    1.0    5.8   36.9
+/  Step 45 of 50. Elapsed 0:00:08.2 ETA 0:00:00.84.600e-01         61              361       1.54e-01    56.7    0.0    1.0    5.4   36.9
+-  Step 46 of 50. Elapsed 0:00:08.3 ETA 0:00:00.64.700e-01         61              361       1.56e-01    56.9    0.0    1.0    5.1   37.0
+\  Step 47 of 50. Elapsed 0:00:08.5 ETA 0:00:00.54.800e-01         61              361       1.56e-01    56.4    0.0    1.0    5.6   37.0
+|  Step 48 of 50. Elapsed 0:00:08.6 ETA 0:00:00.34.900e-01         61              361       1.54e-01    56.4    0.0    1.0    5.6   37.0
+/  Step 49 of 50. Elapsed 0:00:08.8 ETA 0:00:00.25.000e-01         61              361       1.62e-01    55.9    0.0    1.1    5.7   37.3
+-  Step 50 of 50. Elapsed 0:00:09.0 ETA 0:00:00.0
+Run finished at  : Tue 18 Oct 2022 06:37:35 AM UTC
+Run time : 9 s
+	Option datadir = data ()
+	Option settingsfile = BOUT.settings ()
+Writing options to file data/BOUT.settings
+	Option time_report:show = 0 (default)
